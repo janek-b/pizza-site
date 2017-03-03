@@ -14,8 +14,14 @@ console.log(pizza.getPrice());
 
 // Front-End
 $(function() {
-  $("pizzaForm").submit(function() {
+  $("#pizzaForm").submit(function() {
     event.preventDefault();
-    
+    var inputSize = parseInt($("input:radio[name=pizzaSize]:checked").val());
+    var inputToppings = [];
+    $("input:checkbox[name=topping]:checked").each(function() {
+      inputToppings.push($(this).val());
+    });
+    console.log(inputToppings);
+    console.log(inputSize);
   })
 })
