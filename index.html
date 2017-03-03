@@ -184,16 +184,22 @@
               </div>
               <div class="modal-body">
                 <h4>Thank You <span id="output-first-name"></span> <span id="output-last-name"></span>. Your order has been received.</h4>
-                <h5>Order Summary:</h5>
-                <ul id="orderSummary">
-                </ul>
-                <div id="output-pickup">
-                  <p>Amount due at pickup: <span class="output-orderTotal pull-right"></span></p>
-                  <p>Your order will be ready for Pickup in 30 minutes.</p>
-                </div>
-                <div id="output-delivery">
-                  <p>Amount due at delivery: <span class="output-orderTotal pull-right"></span></p>
-                  <p>Your order will be delivered to you in 30 munites.</p>
+                <div class="well">
+                  <h5>Order Summary:</h5>
+                  <ul id="orderSummary">
+                  </ul>
+                  <div id="output-pickup">
+                    <p>Amount due at pickup: <span class="output-orderTotal pull-right"></span></p>
+                    <hr>
+                    <p>Your order will be ready for pickup in 30 minutes.</p>
+                  </div>
+                  <div id="output-delivery">
+                    <p>Amount due at delivery: <span class="output-orderTotal pull-right"></span></p>
+                    <hr>
+                    <p>Your order will be delivered to you in 30 minutes at the address below.</p>
+                    <p><span id="output-street"></span><br><span id="output-city"></span></p>
+                    <p>Our driver will contact you at <span id="output-phone"></span> when they arive.</p>
+                  </div>
                 </div>
               </div>
               <div class="modal-footer">

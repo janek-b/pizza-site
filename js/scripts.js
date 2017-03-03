@@ -103,8 +103,12 @@ $(function() {
 
     if ($("input:radio[name=delivery]:checked").val() === "pickup") {
       var inputFields = pickupFields.slice();
+      $("#output-pickup").show();
+      $("#output-delivery").hide();
     } else if ($("input:radio[name=delivery]:checked").val() === "delivery") {
       var inputFields = deliveryFields.slice();
+      $("#output-delivery").show();
+      $("#output-pickup").hide();
     };
     var formCompleted = false;
     inputFields.forEach(function(field) {
@@ -115,18 +119,10 @@ $(function() {
       };
     });
     if (formCompleted) {
-      pickupFields.forEach(function(field) {
+      inputFields.forEach(function(field) {
         var inputfield = $("#"+field).val();
         $("#output-"+field).text(inputfield);
-        console.log(field, inputfield);
       });
-      if ($("input:radio[name=delivery]:checked").val() === "pickup") {
-        $("#output-pickup").show();
-        $("#output-delivery").hide();
-      } else if ($("input:radio[name=delivery]:checked").val() === "delivery") {
-        $("#output-delivery").show();
-        $("#output-pickup").hide();
-      };
       $("ul#orderSummary").empty();
       order.items.forEach(function(item) {
         $("ul#orderSummary").append("<li>"+item.getDescription()+"<span class='pull-right'>$"+item.getPrice()+"</span></li>")
