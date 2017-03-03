@@ -110,12 +110,11 @@ $(function() {
       $("#output-delivery").show();
       $("#output-pickup").hide();
     };
-    var formCompleted = false;
+    var formCompleted = true;
     inputFields.forEach(function(field) {
       if ($("#"+field).val() === "") {
         $("#"+field).addClass("missingInput");
-      } else {
-        formCompleted = true;
+        formCompleted = false;
       };
     });
     if (formCompleted) {
