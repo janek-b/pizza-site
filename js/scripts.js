@@ -71,5 +71,9 @@ $(function() {
     order.items.push(userPizza);
 
     $("#orderPrice").text("$" + order.getOrderTotal());
+
+    $("input:checkbox[name=topping]").each(function() {
+      this.checked = false;
+    });
   })
 })
