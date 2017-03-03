@@ -22,11 +22,9 @@ Pizza.prototype.getDescription = function() {
 }
 
 Pizza.prototype.getToppingList = function() {
-  var list = "<ul>";
-  this.toppings.forEach(function(topping) {
-    list = list + "<li>" + topping + "</li>";
-  });
-  return list + "</ul>";
+  return this.toppings.reduce(function(string, topping) {
+    return string + "<li>" + topping + "</li>";
+  }, "<ul>") + "</ul>";
 }
 
 function Order() {
@@ -34,11 +32,9 @@ function Order() {
 }
 
 Order.prototype.getOrderTotal = function() {
-  var total = 0;
-  this.items.forEach(function(item) {
-    total += parseFloat(item.getPrice());
-  });
-  return total.toFixed(2);
+  return this.items.reduce(function(total, item) {
+    return total + parseFloat(item.getPrice());
+  }, 0).toFixed(2);
 }
 
 
