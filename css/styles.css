@@ -14,6 +14,15 @@ hr {
   border-top: 1px solid rgb(185, 185, 185);
 }
 
+h1 a {
+  color: white;
+}
+
+h1 a:hover {
+  color: white;
+  text-decoration: none;
+}
+
 .jumbotron {
   text-align: center;
   background-color: rgb(51, 122, 183);
