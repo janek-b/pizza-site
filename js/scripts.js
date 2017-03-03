@@ -2,6 +2,14 @@
 function Pizza(size) {
   this.size = size;
   this.toppings = [];
+  this.sizeDesc = "";
+  if (this.size === 10) {
+    this.sizeDesc = "Small"
+  } else if (this.size === 12) {
+    this.sizeDesc = "Medium"
+  } else if (this.size === 14) {
+    this.sizeDesc = "Large"
+  };
 };
 
 Pizza.prototype.getPrice = function() {
@@ -10,15 +18,7 @@ Pizza.prototype.getPrice = function() {
 }
 
 Pizza.prototype.getDescription = function() {
-  var sizeDesc = "";
-  if (this.size === 10) {
-    sizeDesc = "Small"
-  } else if (this.size === 12) {
-    sizeDesc = "Medium"
-  } else if (this.size === 14) {
-    sizeDesc = "Large"
-  };
-  return sizeDesc + " Pizza with " + this.toppings.length + " toppings";
+  return this.sizeDesc + " Pizza with " + this.toppings.length + " toppings";
 }
 
 Pizza.prototype.getToppingList = function() {
@@ -58,10 +58,10 @@ $(function() {
     event.preventDefault();
     var inputSize = parseInt($("input:radio[name=pizzaSize]:checked").val());
     var userPizza = new Pizza(inputSize);
-
     $("input:checkbox[name=topping]:checked").each(function() {
       userPizza.toppings.push($(this).val());
     });
+    order.items.push(userPizza);
 
     $("ul#pizzas").append("<li><span class='pizza'>" + userPizza.getDescription() + "</span><span class='pull-right'>$" + userPizza.getPrice() + "</span></li>");
     $("ul#pizzas > li").last().after(userPizza.getToppingList());
@@ -69,15 +69,11 @@ $(function() {
     $("ul#pizzas > li").last().click(function() {
       $(this).next().slideToggle();
     });
-
-    order.items.push(userPizza);
-
     $("#orderPrice").text("$" + order.getOrderTotal());
 
     $("input:checkbox[name=topping]").each(function() {
       this.checked = false;
     });
-
     $("#orderDetails").slideDown();
     $("#pizzaForm").slideUp();
   });
@@ -99,10 +95,10 @@ $(function() {
 
   $("#checkoutForm").submit(function() {
     event.preventDefault();
-    var deliveryFields = ["#first-name", "#last-name", "#phone", "#street", "#city"];
-    var pickupFields = ["#first-name", "#last-name", "#phone"];
+    var deliveryFields = ["first-name", "last-name", "phone", "street", "city"];
+    var pickupFields = ["first-name", "last-name", "phone"];
     deliveryFields.forEach(function(field) {
-      $(field).removeClass("missingInput");
+      $("#"+field).removeClass("missingInput");
     });
 
     if ($("input:radio[name=delivery]:checked").val() === "pickup") {
@@ -110,11 +106,34 @@ $(function() {
     } else if ($("input:radio[name=delivery]:checked").val() === "delivery") {
       var inputFields = deliveryFields.slice();
     };
+    var formCompleted = false;
     inputFields.forEach(function(field) {
-      if ($(field).val() === "") {
-        $(field).addClass("missingInput");
+      if ($("#"+field).val() === "") {
+        $("#"+field).addClass("missingInput");
+      } else {
+        formCompleted = true;
       };
     });
+    if (formCompleted) {
+      pickupFields.forEach(function(field) {
+        var inputfield = $("#"+field).val();
+        $("#output-"+field).text(inputfield);
+        console.log(field, inputfield);
+      });
+      if ($("input:radio[name=delivery]:checked").val() === "pickup") {
+        $("#output-pickup").show();
+        $("#output-delivery").hide();
+      } else if ($("input:radio[name=delivery]:checked").val() === "delivery") {
+        $("#output-delivery").show();
+        $("#output-pickup").hide();
+      };
+      $("ul#orderSummary").empty();
+      order.items.forEach(function(item) {
+        $("ul#orderSummary").append("<li>"+item.getDescription()+"<span class='pull-right'>$"+item.getPrice()+"</span></li>")
+      });
+      $(".output-orderTotal").text("$"+order.getOrderTotal());
+      $("#orderCompleteModal").modal();
+    }
 
   })
 })

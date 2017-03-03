@@ -173,6 +173,37 @@
           </div>
         </div>
       </div>
+      <div class="row">
+
+        <div class="modal fade" id="orderCompleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Order Confirmation</h4>
+              </div>
+              <div class="modal-body">
+                <h4>Thank You <span id="output-first-name"></span> <span id="output-last-name"></span>. Your order has been received.</h4>
+                <h5>Order Summary:</h5>
+                <ul id="orderSummary">
+                </ul>
+                <div id="output-pickup">
+                  <p>Amount due at pickup: <span class="output-orderTotal pull-right"></span></p>
+                  <p>Your order will be ready for Pickup in 30 minutes.</p>
+                </div>
+                <div id="output-delivery">
+                  <p>Amount due at delivery: <span class="output-orderTotal pull-right"></span></p>
+                  <p>Your order will be delivered to you in 30 munites.</p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </body>
 </html>
