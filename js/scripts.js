@@ -12,6 +12,12 @@ Pizza.prototype.getPrice = function() {
 
 // Front-End
 $(function() {
+  $("#build").click(function() {
+    $("#build").slideUp();
+    $("#pizzaForm").slideDown();
+  });
+
+
   $("#pizzaForm").submit(function() {
     event.preventDefault();
     var inputSize = parseInt($("input:radio[name=pizzaSize]:checked").val());
