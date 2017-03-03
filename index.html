@@ -9,6 +9,58 @@
     <title>Pizza Site</title>
   </head>
   <body>
+    <div class="container">
+      <div class="row">
+        <div class="jumbotron">
+          <h1>Pizza Site</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <button id="build" type="button" class="btn btn-primary">Build Your Pizza</button>
+          <form id="pizzaForm">
+            <!-- Size Selection -->
+            <div class="form-group">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pizzaSize" value="10" checked>
+                  Small (10")
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pizzaSize" value="12">
+                  Medium (12")
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pizzaSize" value="14">
+                  Large (14")
+                </label>
+              </div>
+            </div>
+            <!-- Toppings Selection -->
+            <div class="form-group">
+              <input type="checkbox" name="topping" value="Pineapple">Pineapple<br>
+              <input type="checkbox" name="topping" value="Spinach">Spinach<br>
+              <input type="checkbox" name="topping" value="Pepperoni">Pepperoni<br>
+              <input type="checkbox" name="topping" value="Bacon">Bacon<br>
+              <input type="checkbox" name="topping" value="Ham">Ham<br>
+              <input type="checkbox" name="topping" value="Onion">Onion<br>
+              <input type="checkbox" name="topping" value="Green Peppers">Green Peppers<br>
+              <input type="checkbox" name="topping" value="Jalapenos">Jalapenos<br>
+              <input type="checkbox" name="topping" value="Chicken">Chicken<br>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Place Order</button>
+          </form>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>

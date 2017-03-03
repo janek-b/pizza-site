@@ -13,3 +13,9 @@ var pizza = new Pizza(10, ["onion", "ham", "bacon", "cheese"]);
 console.log(pizza.getPrice());
 
 // Front-End
+$(function() {
+  $("pizzaForm").submit(function() {
+    event.preventDefault();
+    
+  })
+})
