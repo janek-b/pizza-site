@@ -99,7 +99,22 @@ $(function() {
 
   $("#checkoutForm").submit(function() {
     event.preventDefault();
+    var deliveryFields = ["#first-name", "#last-name", "#phone", "#street", "#city"];
+    var pickupFields = ["#first-name", "#last-name", "#phone"];
+    deliveryFields.forEach(function(field) {
+      $(field).removeClass("missingInput");
+    });
 
-    
+    if ($("input:radio[name=delivery]:checked").val() === "pickup") {
+      var inputFields = pickupFields.slice();
+    } else if ($("input:radio[name=delivery]:checked").val() === "delivery") {
+      var inputFields = deliveryFields.slice();
+    };
+    inputFields.forEach(function(field) {
+      if ($(field).val() === "") {
+        $(field).addClass("missingInput");
+      };
+    });
+
   })
 })
