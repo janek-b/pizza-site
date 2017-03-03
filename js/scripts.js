@@ -50,6 +50,10 @@ $(function() {
     $("#orderPizza").slideDown();
   });
 
+  $("#anotherPizza").click(function() {
+    $("#pizzaForm").slideDown();
+  })
+
   $("#pizzaForm").submit(function() {
     event.preventDefault();
     var inputSize = parseInt($("input:radio[name=pizzaSize]:checked").val());
@@ -59,10 +63,10 @@ $(function() {
       userPizza.toppings.push($(this).val());
     });
 
-    $("ul#pizzas").append("<li class='pizza'>" + userPizza.getDescription() + "<span class='pizzaPrice pull-right'>$" + userPizza.getPrice() + "</span></li>");
-    $(".pizza").last().after(userPizza.getToppingList());
-    $(".pizza").last().next().hide();
-    $(".pizza").last().click(function() {
+    $("ul#pizzas").append("<li><span class='pizza'>" + userPizza.getDescription() + "</span><span class='pull-right'>$" + userPizza.getPrice() + "</span></li>");
+    $("ul#pizzas > li").last().after(userPizza.getToppingList());
+    $("ul#pizzas > li").last().next().hide();
+    $("ul#pizzas > li").last().click(function() {
       $(this).next().slideToggle();
     });
 
@@ -73,5 +77,8 @@ $(function() {
     $("input:checkbox[name=topping]").each(function() {
       this.checked = false;
     });
+
+    $("#orderDetails").slideDown();
+    $("#pizzaForm").slideUp();
   })
 })

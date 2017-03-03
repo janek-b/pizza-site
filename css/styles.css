@@ -2,6 +2,10 @@
   display: none;
 }
 
+#orderDetails {
+  display: none;
+}
+
 .jumbotron {
   text-align: center;
 }
@@ -9,4 +13,17 @@
 .col-xs-4 {
   display: flex;
   justify-content: center;
+}
+
+h4 {
+  text-align: center;
+}
+
+.pizza{
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.pizza:hover {
+  text-decoration: underline;
 }
