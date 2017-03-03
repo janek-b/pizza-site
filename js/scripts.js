@@ -47,10 +47,8 @@ $(function() {
   var order = new Order();
   $("#build").click(function() {
     $("#build").slideUp();
-    $("#pizzaForm").slideDown();
-
+    $("#orderPizza").slideDown();
   });
-
 
   $("#pizzaForm").submit(function() {
     event.preventDefault();
