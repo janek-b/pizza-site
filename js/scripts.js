@@ -80,5 +80,20 @@ $(function() {
 
     $("#orderDetails").slideDown();
     $("#pizzaForm").slideUp();
+  });
+
+  $("input:radio[name=delivery]").change(function() {
+    if ($(this).val() === "delivery") {
+      $("#addressForm").slideDown();
+    } else if ($(this).val() === "pickup") {
+      $("#addressForm").slideUp();
+    };
+  });
+
+  $("#placeOrder").click(function() {
+    $("#pizzaForm").slideUp();
+    $("#anotherPizza").slideUp();
+    $("#placeOrder").slideUp();
+    $("#deliveryOptions").slideDown();
   })
 })

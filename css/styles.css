@@ -6,6 +6,23 @@
   display: none;
 }
 
+#deliveryOptions {
+  display: none;
+}
+
+#addressForm {
+  display: none;
+}
+
+#orderDetails h5 {
+  text-align: center;
+  margin-left: 60%;
+}
+
+hr {
+  border-top: 1px solid rgb(185, 185, 185);
+}
+
 .jumbotron {
   text-align: center;
   background-color: rgb(51, 122, 183);
@@ -17,6 +34,11 @@
   justify-content: center;
 }
 
+.col-xs-6 {
+  display: flex;
+  justify-content: center;
+}
+
 h4 {
   text-align: center;
 }
@@ -24,7 +46,7 @@ h4 {
 .pizza{
   font-weight: bold;
   cursor: pointer;
-  color: #0088cc;
+  color: rgb(51, 122, 183);
 }
 
 .pizza:hover {

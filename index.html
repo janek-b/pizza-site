@@ -98,20 +98,46 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div id="orderDetails"class="well">
-            <h4>Your Pizza</h4>
-            <div id="pizzaDetails">
-              <ul id="pizzas">
-              </ul>
+            <div class="row">
+              <h4>Your Pizza</h4>
+              <div id="pizzaDetails">
+                <ul id="pizzas">
+                </ul>
+              </div>
+              <hr>
+              <h5>Order Total: <span class="pull-right" id="orderPrice"></span></h5>
+              <hr>
+              <button id="anotherPizza" type="button" class="btn btn-info btn-block">Add another Pizza</button>
+              <button id="placeOrder" type="button" class="btn btn-primary btn-block">Place Order</button>
+
             </div>
-            <hr>
-            <h5>Order Total: <span class="pull-right" id="orderPrice"></span></h5>
-            <hr>
-            <button id="anotherPizza" type="button" class="btn btn-info btn-block">Add another Pizza</button>
-            <button id="placeOrder" type="button" class="btn btn-primary btn-block">Place Order</button>
+            <div id="deliveryOptions" class="row">
+              <div class="col-xs-6">
+                <div class="radio-inline">
+                  <label>
+                    <input type="radio" name="delivery" value="pickup" checked>
+                    Pick Up
+                  </label>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="radio-inline">
+                  <label>
+                    <input type="radio" name="delivery" value="delivery">
+                    Delivery
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <form id="addressForm">
+                <h3>address form</h3>
+
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   </body>
 </html>
