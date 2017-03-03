@@ -9,8 +9,6 @@ Pizza.prototype.getPrice = function() {
   return (this.size - 4) + (this.toppings.length * 0.5);
 }
 
-var pizza = new Pizza(10, ["onion", "ham", "bacon", "cheese"]);
-console.log(pizza.getPrice());
 
 // Front-End
 $(function() {
@@ -21,7 +19,8 @@ $(function() {
     $("input:checkbox[name=topping]:checked").each(function() {
       inputToppings.push($(this).val());
     });
-    console.log(inputToppings);
-    console.log(inputSize);
+    var userPizza = new Pizza(inputSize, inputToppings);
+    console.log(userPizza);
+    console.log(userPizza.getPrice());
   })
 })
