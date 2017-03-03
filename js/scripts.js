@@ -84,9 +84,9 @@ $(function() {
 
   $("input:radio[name=delivery]").change(function() {
     if ($(this).val() === "delivery") {
-      $("#addressForm").slideDown();
+      $("#address").slideDown();
     } else if ($(this).val() === "pickup") {
-      $("#addressForm").slideUp();
+      $("#address").slideUp();
     };
   });
 
@@ -95,5 +95,11 @@ $(function() {
     $("#anotherPizza").slideUp();
     $("#placeOrder").slideUp();
     $("#deliveryOptions").slideDown();
+  })
+
+  $("#checkoutForm").submit(function() {
+    event.preventDefault();
+
+    
   })
 })
