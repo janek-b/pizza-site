@@ -22,13 +22,13 @@
             <div class="form-group">
               <div class="radio-inline">
                 <label>
-                  <input type="radio" name="pizzaSize" value="10" checked>
+                  <input type="radio" name="pizzaSize" value="10">
                   Small (10")
                 </label>
               </div>
               <div class="radio-inline">
                 <label>
-                  <input type="radio" name="pizzaSize" value="12">
+                  <input type="radio" name="pizzaSize" value="12" checked>
                   Medium (12")
                 </label>
               </div>
@@ -58,7 +58,7 @@
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Place Order</button>
+            <button type="submit" class="btn btn-primary">Add to Order</button>
           </form>
           <button id="build" type="button" class="btn btn-primary">Build Your Pizza</button>
 
@@ -68,11 +68,12 @@
             <h4>Your Pizza</h4>
             <div id="pizzaDetails">
               <ul id="pizzas">
-                
+
               </ul>
 
             </div>
-            <h5>Order Total: $<span id="orderPrice"></span></h5>
+            <hr>
+            <h5>Order Total: <span class="pull-right" id="orderPrice"></span></h5>
           </div>
         </div>
       </div>

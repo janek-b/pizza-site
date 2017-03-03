@@ -21,12 +21,34 @@ Pizza.prototype.getDescription = function() {
   return sizeDesc + " Pizza with " + this.toppings.length + " toppings";
 }
 
+Pizza.prototype.getToppingList = function() {
+  var list = "<ul>";
+  this.toppings.forEach(function(topping) {
+    list = list + "<li>" + topping + "</li>";
+  });
+  return list + "</ul>";
+}
+
+function Order() {
+  this.items = [];
+}
+
+Order.prototype.getOrderTotal = function() {
+  var total = 0;
+  this.items.forEach(function(item) {
+    total += parseFloat(item.getPrice());
+  });
+  return total.toFixed(2);
+}
+
 
 // Front-End
 $(function() {
+  var order = new Order();
   $("#build").click(function() {
     $("#build").slideUp();
     $("#pizzaForm").slideDown();
+
   });
 
 
@@ -39,11 +61,15 @@ $(function() {
       userPizza.toppings.push($(this).val());
     });
 
-    $("ul#pizzas").append("<li><span class'pizza'>" + userPizza.getDescription() + "</span></li>");
+    $("ul#pizzas").append("<li class='pizza'>" + userPizza.getDescription() + "<span class='pizzaPrice pull-right'>$" + userPizza.getPrice() + "</span></li>");
+    $(".pizza").last().after(userPizza.getToppingList());
+    $(".pizza").last().next().hide();
+    $(".pizza").last().click(function() {
+      $(this).next().slideToggle();
+    });
 
-    console.log(userPizza);
-    console.log(userPizza.getPrice());
-    console.log(userPizza.getDescription());
-    $("#orderPrice").text(userPizza.getPrice());
+    order.items.push(userPizza);
+
+    $("#orderPrice").text("$" + order.getOrderTotal());
   })
 })
