@@ -15,27 +15,27 @@ function Pizza(size) {
 Pizza.prototype.getPrice = function() {
   // size small(10" $6) medium(12" $8) large(14" $10)
   return ((this.size - 4) + (this.toppings.length * 0.5)).toFixed(2);
-}
+};
 
 Pizza.prototype.getDescription = function() {
   return this.sizeDesc + " Pizza with " + this.toppings.length + " toppings";
-}
+};
 
 Pizza.prototype.getToppingList = function() {
   return this.toppings.reduce(function(string, topping) {
     return string + "<li>" + topping + "</li>";
   }, "<ul>") + "</ul>";
-}
+};
 
 function Order() {
   this.items = [];
-}
+};
 
 Order.prototype.getOrderTotal = function() {
   return this.items.reduce(function(total, item) {
     return total + parseFloat(item.getPrice());
   }, 0).toFixed(2);
-}
+};
 
 
 // Front-End
@@ -48,7 +48,7 @@ $(function() {
 
   $("#anotherPizza").click(function() {
     $("#pizzaForm").slideDown();
-  })
+  });
 
   $("#pizzaForm").submit(function() {
     event.preventDefault();
@@ -87,7 +87,7 @@ $(function() {
     $("#anotherPizza").slideUp();
     $("#placeOrder").slideUp();
     $("#deliveryOptions").slideDown();
-  })
+  });
 
   $("#checkoutForm").submit(function() {
     event.preventDefault();
@@ -124,7 +124,7 @@ $(function() {
       });
       $(".output-orderTotal").text("$"+order.getOrderTotal());
       $("#orderCompleteModal").modal();
-    }
+    };
 
-  })
-})
+  });
+});
