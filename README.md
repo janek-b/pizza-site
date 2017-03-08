@@ -12,9 +12,13 @@ _This project is a website that allows a user to place an order for a pizza. The
 
 | Behavior                   | Input Example     | Output Example    |
 | -------------------------- | -----------------:| -----------------:|
-| Create a pizza object that has a size property and a property for the toppings | var pizza = new Pizza(size, toppings) | Pizza {size: "size", toppings: [topping1, topping2, topping3]} |
-| Pizza object has a method to calculate the price of the pizza | pizza.getPrice(); | "$12" |
-| getPrice method calculates a base price based on the size property and adds a topping price for each topping. | pizza.getPrice(); | "$13.50" , "$12" base "$.50" each topping |
+| A topping can be added to a pizza | "Bacon" | "Bacon" |
+| Multiple toppings can be added to a pizza | "Bacon, Onion" | "Bacon, Onion" |
+| The price of a pizza changes based on the pizza size | "small" | "$6" |
+| The price of a pizza changes based on the number of toppings and size | "small", "Bacon" | "$6.50" |
+| A pizza can be added to an order | "small", "Bacon" | "small", "Bacon" |
+| Multiple pizzas can be added to an order | "small", "Bacon"; "medium", "Onion" | "small", "Bacon"; "medium", "Onion" |
+| The price of the order is a total of the price of all the pizzas on the order | "small", "Bacon"; "medium", "Onion" | "$15.00" |
 
 
 ## Setup/Installation Requirements
