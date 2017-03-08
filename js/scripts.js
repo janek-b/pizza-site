@@ -2,14 +2,6 @@
 function Pizza(size) {
   this.size = size;
   this.toppings = [];
-  this.sizeDesc = "";
-  if (this.size === 10) {
-    this.sizeDesc = "Small"
-  } else if (this.size === 12) {
-    this.sizeDesc = "Medium"
-  } else if (this.size === 14) {
-    this.sizeDesc = "Large"
-  };
 };
 
 Pizza.prototype.getPrice = function() {
@@ -17,8 +9,18 @@ Pizza.prototype.getPrice = function() {
   return ((this.size - 4) + (this.toppings.length * 0.5)).toFixed(2);
 };
 
+Pizza.prototype.getSizeDesc = function() {
+  if (this.size === 10) {
+    return "Small";
+  } else if (this.size === 12) {
+    return "Medium";
+  } else if (this.size === 14) {
+    return "Large";
+  };
+};
+
 Pizza.prototype.getDescription = function() {
-  return this.sizeDesc + " Pizza with " + this.toppings.length + " toppings";
+  return this.getSizeDesc() + " Pizza with " + this.toppings.length + " toppings";
 };
 
 Pizza.prototype.getToppingList = function() {
